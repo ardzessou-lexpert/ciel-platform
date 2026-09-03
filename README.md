@@ -1,6 +1,6 @@
 # CIEL'
 
-## Centre d’Innovation d’Excellence L’Expert
+## Centre d’Innovation et d’Excellence L’Expert
 
 CIEL' est une plateforme dédiée aux jeux éducatifs, aux formations, à la technologie, à la robotique, aux ressources pédagogiques et aux créations.
 
