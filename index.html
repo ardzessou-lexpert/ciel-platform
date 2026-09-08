@@ -1,1 +1,1246 @@
-<!-- CIEL' - Centre d’Innovation d’Excellence L’Expert -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CIEL' — Centre d’Innovation d’Excellence L’Expert</title>
+
+  <meta name="description" content="CIEL' — Jeux éducatifs, technologie, robotique, formations, ressources pédagogiques et créations.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f7f5;
+      color: #171717;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #e5e5e5;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      width: 95px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    nav a:hover {
+      color: #ec3013;
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: #201e1d;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 95px 24px 80px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #201e1d;
+      color: white;
+      padding: 7px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #ec3013;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 19px;
+      color: #555;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #ec3013;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-dark {
+      background: #201e1d;
+      color: white;
+    }
+
+    .btn-light {
+      background: white;
+      border: 1px solid #ddd;
+    }
+
+    .hero-card {
+      background: #201e1d;
+      color: white;
+      border-radius: 22px;
+      padding: 42px;
+      min-height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    }
+
+    .hero-card .symbol {
+      font-size: 70px;
+    }
+
+    .hero-card h2 {
+      font-size: 30px;
+      line-height: 1.1;
+    }
+
+    .hero-card p {
+      color: #ddd;
+      font-size: 15px;
+      margin: 0;
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
+    section {
+      padding: 80px 24px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      margin-bottom: 40px;
+    }
+
+    .section-title small {
+      color: #ec3013;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.05;
+      margin-top: 8px;
+    }
+
+    .section-title p {
+      color: #666;
+      max-width: 650px;
+      margin-top: 12px;
+    }
+
+    /* =========================
+       UNIVERS
+    ========================= */
+
+    .univers {
+      background: white;
+    }
+
+    .universe-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .universe {
+      background: #f7f7f5;
+      padding: 28px;
+      border-radius: 14px;
+      border: 1px solid #eee;
+      transition: 0.2s;
+    }
+
+    .universe:hover {
+      transform: translateY(-5px);
+      border-color: #ec3013;
+    }
+
+    .universe-icon {
+      font-size: 34px;
+      margin-bottom: 18px;
+    }
+
+    .universe h3 {
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+
+    .universe p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* =========================
+       JEUX
+    ========================= */
+
+    .games {
+      background: #201e1d;
+      color: white;
+    }
+
+    .games .section-title p {
+      color: #bbb;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .game-card {
+      background: #fff;
+      color: #171717;
+      border-radius: 16px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .game-number {
+      position: absolute;
+      right: 22px;
+      top: 18px;
+      font-size: 50px;
+      font-weight: 900;
+      color: #eee;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      background: #e9f6ed;
+      color: #23743a;
+      font-size: 11px;
+      font-weight: bold;
+      border-radius: 30px;
+      margin-bottom: 18px;
+    }
+
+    .game-card h3 {
+      font-size: 27px;
+      margin-bottom: 10px;
+    }
+
+    .game-card p {
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    /* =========================
+       FORMATIONS
+    ========================= */
+
+    .formation-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .formation {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid #e6e6e6;
+    }
+
+    .formation h3 {
+      margin: 15px 0 8px;
+    }
+
+    .formation p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .formation .icon {
+      font-size: 36px;
+    }
+
+    /* =========================
+       HISTOIRE
+    ========================= */
+
+    .history {
+      background: #eeeae6;
+    }
+
+    .history-box {
+      background: white;
+      padding: 45px;
+      border-radius: 18px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .history-big {
+      font-size: 70px;
+      font-weight: 900;
+      color: #ec3013;
+    }
+
+    .history-box h3 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .history-box p {
+      color: #666;
+    }
+
+    /* =========================
+       BOUTIQUE
+    ========================= */
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .shop-card {
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .price {
+      font-size: 25px;
+      font-weight: 900;
+      color: #ec3013;
+      margin: 12px 0 20px;
+    }
+
+    .coming {
+      color: #777;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* =========================
+       GUIDES / SCI MAG
+    ========================= */
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 16px;
+      padding: 35px;
+      border: 1px solid #e5e5e5;
+    }
+
+    .info-card h3 {
+      font-size: 25px;
+      margin: 12px 0;
+    }
+
+    .info-card p {
+      color: #666;
+    }
+
+    .coming-badge {
+      display: inline-block;
+      background: #f3eee7;
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    /* =========================
+       VIDEO
+    ========================= */
+
+    .video-section {
+      background: white;
+    }
+
+    .video-box {
+      background: #201e1d;
+      border-radius: 18px;
+      overflow: hidden;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .video-box video {
+      width: 100%;
+      display: block;
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      background: #ec3013;
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(35px, 5vw, 55px);
+      line-height: 1;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      margin-bottom: 25px;
+    }
+
+    .cta .btn {
+      background: white;
+      color: #201e1d;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #171717;
+      color: white;
+      padding: 45px 24px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    footer p {
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    .footer-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 65px;
+      }
+
+      .universe-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .formation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .history-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .nav {
+        padding: 12px 18px;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 20px;
+        flex-direction: column;
+        border-bottom: 1px solid #ddd;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      section {
+        padding: 60px 18px;
+      }
+
+      .universe-grid,
+      .game-grid,
+      .shop-grid,
+      .two-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        padding: 30px;
+      }
+
+      .history-box {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header>
+    <div class="nav">
+
+      <a href="#accueil">
+        <img
+          src="assets/images/LOGO CIEL'.jpeg"
+          alt="Logo CIEL'"
+          class="logo"
+        >
+      </a>
+
+      <button class="menu-btn" onclick="toggleMenu()">MENU</button>
+
+      <nav id="mainNav">
+        <a href="#univers">Univers</a>
+        <a href="#jeux">Jeux</a>
+        <a href="#formations">Formations</a>
+        <a href="#boutique">Boutique</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <main>
+
+    <section class="hero" id="accueil">
+
+      <div>
+
+        <span class="badge">
+          CENTRE D’INNOVATION D’EXCELLENCE L’EXPERT
+        </span>
+
+        <h1>
+          Apprendre.<br>
+          Créer.<br>
+          <span>Innover.</span>
+        </h1>
+
+        <p>
+          CIEL' rassemble jeux éducatifs, technologie, robotique,
+          formations, ressources pédagogiques et créations dans
+          un même univers.
+        </p>
+
+        <div class="buttons">
+          <a href="#jeux" class="btn btn-primary">
+            Découvrir les jeux
+          </a>
+
+          <a href="#univers" class="btn btn-light">
+            Explorer CIEL'
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero-card">
+
+        <div class="symbol">✦</div>
+
+        <div>
+          <h2>
+            Une plateforme.<br>
+            Plusieurs univers.
+          </h2>
+
+          <p>
+            Jeux • Formation • Technologie • Création
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         UNIVERS
+    ========================= -->
+
+    <section class="univers" id="univers">
+
+      <div class="container">
+
+        <div class="section-title">
+          <small>Découvrir CIEL'</small>
+          <h2>Nos univers</h2>
+          <p>
+            Un écosystème conçu pour apprendre, expérimenter,
+            créer et partager.
+          </p>
+        </div>
+
+        <div class="universe-grid">
+
+          <div class="universe">
+            <div class="universe-icon">🎮</div>
+            <h3>Jeux numériques</h3>
+            <p>Des expériences interactives et éducatives.</p>
+          </div>
+
+          <div class="universe">
+            <div class="universe-icon">🧩</div>
+            <h3>Jeux & cahiers</h3>
+            <p>Mots mêlés, mots fléchés, Sudoku et jeux instructifs.</p>
+          </div>
+
+          <div class="universe">
+            <div class="universe-icon">🤖</div>
+            <h3>Technologie & Robotique</h3>
+            <p>Apprendre à construire, programmer et innover.</p>
+          </div>
+
+          <div class="universe">
+            <div class="universe-icon">💻</div>
+            <h3>Informatique & Infographie</h3>
+            <p>Des compétences numériques pour créer et progresser.</p>
+          </div>
+
+          <div class="universe">
+            <div class="universe-icon">📖</div>
+            <h3>Guides numériques</h3>
+            <p>Des ressources conçues pour accompagner les jeunes.</p>
+          </div>
+
+          <div class="universe">
+            <div class="universe-icon">👕</div>
+            <h3>Boutique</h3>
+            <p>Collections vestimentaires et produits CIEL'.</p>
+          </div>
+
+          <div class="universe">
+            <div class="universe-icon">🎨</div>
+            <h3>Créations artistiques</h3>
+            <p>Tableaux, œuvres et collections à découvrir.</p>
+          </div>
+
+          <div class="universe">
+            <div class="universe-icon">🔬</div>
+            <h3>Sci-Mag</h3>
+            <p>Le mag scientifique préféré des enfants révolutionnaires.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         JEUX
+    ========================= -->
+
+    <section class="games" id="jeux">
+
+      <div class="container">
+
+        <div class="section-title">
+          <small>Jouer & apprendre</small>
+          <h2>Jeux numériques</h2>
+          <p>
+            Découvre les premières expériences interactives
+            développées par CIEL'.
+          </p>
+        </div>
+
+        <div class="game-grid">
+
+          <article class="game-card">
+
+            <span class="tag">GRATUIT • JOUER</span>
+
+            <span class="game-number">01</span>
+
+            <h3>Le Manteau de Joseph</h3>
+
+            <p>
+              Un quiz biblique interactif autour de l'histoire
+              de Joseph.
+            </p>
+
+            <a
+              href="games/manteau-joseph/index.html"
+              class="btn btn-primary"
+            >
+              Jouer maintenant →
+            </a>
+
+          </article>
+
+
+          <article class="game-card">
+
+            <span class="tag">DÉMO • ÉDUCATIF</span>
+
+            <span class="game-number">02</span>
+
+            <h3>Mots fléchés CIEL'</h3>
+
+            <p>
+              Un jeu éducatif autour d'Internet, de la technologie
+              et de l'univers Arduino.
+            </p>
+
+            <a
+              href="games/mots-fleches/index.html"
+              class="btn btn-dark"
+            >
+              Découvrir →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FORMATIONS
+    ========================= -->
+
+    <section id="formations">
+
+      <div class="container">
+
+        <div class="section-title">
+          <small>Se former</small>
+          <h2>Formations</h2>
+          <p>
+            Développer des compétences pratiques pour comprendre
+            la technologie et créer des projets.
+          </p>
+        </div>
+
+        <div class="formation-grid">
+
+          <div class="formation">
+            <div class="icon">🤖</div>
+            <h3>Technologie & Robotique</h3>
+            <p>
+              Découverte de l'électronique, Arduino, capteurs,
+              programmation et construction de robots.
+            </p>
+          </div>
+
+          <div class="formation">
+            <div class="icon">💻</div>
+            <h3>Informatique</h3>
+            <p>
+              Formation et accompagnement autour des compétences
+              informatiques.
+            </p>
+          </div>
+
+          <div class="formation">
+            <div class="icon">🎨</div>
+            <h3>Infographie</h3>
+            <p>
+              Développer sa créativité et apprendre les bases
+              de la création graphique.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ROBOTICS SUMMER CAMP
+    ========================= -->
+
+    <section class="history">
+
+      <div class="container">
+
+        <div class="history-box">
+
+          <div>
+            <div class="history-big">🤖</div>
+            <span class="coming-badge">FORMATION TECHNOLOGIQUE</span>
+          </div>
+
+          <div>
+
+            <h3>ROBOTICS SUMMER CAMP</h3>
+
+            <p>
+              Apprends à créer ton propre robot en 4 semaines.
+              Une expérience pratique autour d'Arduino, des capteurs,
+              de l'électronique et de la programmation.
+            </p>
+
+            <br>
+
+            <a href="#contact" class="btn btn-primary">
+              En savoir plus →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         HISTOIRE
+    ========================= -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-title">
+          <small>Notre histoire</small>
+          <h2>Une expérience qui continue</h2>
+        </div>
+
+        <div class="history-box">
+
+          <div>
+            <div class="history-big">01</div>
+            <span class="coming-badge">EXPÉRIENCE CIEL'</span>
+          </div>
+
+          <div>
+
+            <h3>CLUB L'EXPERT</h3>
+
+            <p>
+              Avant CIEL', le CLUB L'EXPERT proposait déjà des
+              jeux instructifs et des activités destinées à
+              apprendre autrement.
+            </p>
+
+            <br>
+
+            <p>
+              Les expériences en Informatique et Infographie
+              font également partie de cette histoire.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BOUTIQUE
+    ========================= -->
+
+    <section class="univers" id="boutique">
+
+      <div class="container">
+
+        <div class="section-title">
+          <small>Découvrir les créations</small>
+          <h2>Boutique</h2>
+          <p>
+            Produits et créations CIEL'. De nouvelles collections
+            arriveront progressivement.
+          </p>
+        </div>
+
+        <div class="shop-grid">
+
+          <div class="shop-card">
+
+            <span class="coming-badge">DISPONIBLE</span>
+
+            <h3>T-shirt « Nani Mokonzi Yesu »</h3>
+
+            <p>
+              Une création vestimentaire porteuse d'un message.
+            </p>
+
+            <div class="price">5 500 F</div>
+
+            <a href="#contact" class="btn btn-primary">
+              Commander →
+            </a>
+
+          </div>
+
+
+          <div class="shop-card">
+
+            <span class="coming-badge">CRÉATIONS</span>
+
+            <h3>Tableaux & créations artistiques</h3>
+
+            <p>
+              Des œuvres et collections artistiques proposées
+              progressivement par CIEL'.
+            </p>
+
+            <div class="price">À partir de 5 500 F</div>
+
+            <a href="#contact" class="btn btn-dark">
+              Découvrir →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         GUIDES
+    ========================= -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-title">
+          <small>Ressources</small>
+          <h2>Guides numériques</h2>
+        </div>
+
+        <div class="two-columns">
+
+          <div class="info-card">
+            <span class="coming-badge">À VENIR</span>
+            <h3>📖 Guide pré-ados</h3>
+            <p>
+              Un guide de méditation biblique conçu spécialement
+              pour accompagner les pré-adolescents.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <span class="coming-badge">À VENIR</span>
+            <h3>📖 Guide ados</h3>
+            <p>
+              Une ressource adaptée aux adolescents pour
+              développer une vie de méditation et de réflexion.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SCI-MAG
+    ========================= -->
+
+    <section class="history">
+
+      <div class="container">
+
+        <div class="two-columns">
+
+          <div class="info-card">
+
+            <span class="coming-badge">BIENTÔT</span>
+
+            <h3>🔬 Sci-Mag</h3>
+
+            <p>
+              <strong>Le mag scientifique préféré des enfants
+              révolutionnaires.</strong>
+            </p>
+
+            <br>
+
+            <p>
+              Un univers scientifique destiné aux jeunes,
+              actuellement en préparation.
+            </p>
+
+          </div>
+
+
+          <div class="info-card">
+
+            <span class="coming-badge">BIENTÔT</span>
+
+            <h3>🧩 Cahiers éducatifs</h3>
+
+            <p>
+              Mots mêlés thématiques, mots fléchés, Sudoku,
+              cartes de jeux instructifs et cahiers
+              Technologie & Robotique.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         VIDEO
+    ========================= -->
+
+    <section class="video-section">
+
+      <div class="container">
+
+        <div class="section-title">
+          <small>Découvrir CIEL'</small>
+          <h2>Notre univers en vidéo</h2>
+        </div>
+
+        <div class="video-box">
+
+          <video controls preload="metadata">
+
+            <source
+              src="videos/presentation-ciel.mp4"
+              type="video/mp4"
+            >
+
+            Votre navigateur ne supporte pas la lecture vidéo.
+
+          </video>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA / CONTACT
+    ========================= -->
+
+    <section class="cta" id="contact">
+
+      <div class="container">
+
+        <h2>Bienvenue dans CIEL'.</h2>
+
+        <p>
+          Apprendre. Créer. Innover.
+        </p>
+
+        <a
+          href="mailto:contact@ciel-expert.com"
+          class="btn"
+        >
+          Nous contacter
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-content">
+
+      <div>
+        <div class="footer-title">CIEL'</div>
+        <p>
+          Centre d’Innovation d’Excellence L’Expert
+        </p>
+      </div>
+
+      <div>
+        <p>
+          © 2026 CIEL' — Tous droits réservés.
+        </p>
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       MENU MOBILE
+  ========================= -->
+
+  <script>
+
+    function toggleMenu() {
+
+      const nav = document.getElementById("mainNav");
+
+      nav.classList.toggle("open");
+
+    }
+
+  </script>
+
+</body>
+</html>
