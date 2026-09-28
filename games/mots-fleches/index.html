@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIEL' — Version numérique du jeu</title>
+<style>
+  :root{
+    --blue-dark:#123166;
+    --blue:#1F4E8C;
+    --blue-light:#EAF1FB;
+    --orange:#F5A623;
+    --orange-light:#FFF3DF;
+    --green:#2E8B57;
+    --green-light:#E8F5EE;
+    --red:#C0392B;
+    --red-light:#FBEAE8;
+    --grey:#5b6472;
+    --ink:#1A1A1A;
+    --paper:#FBFBFE;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Trebuchet MS","Segoe UI",Verdana,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+  }
+  header.hero{
+    background:linear-gradient(180deg,var(--blue-dark) 0%, var(--blue) 100%);
+    color:#fff;
+    padding:1.8rem 1.2rem 3rem;
+    text-align:center;
+  }
+  header.hero .brand{
+    font-weight:700;
+    letter-spacing:.12em;
+    font-size:.8rem;
+    text-transform:uppercase;
+    opacity:.9;
+  }
+  header.hero h1{
+    font-size:clamp(1.4rem,4.5vw,2.1rem);
+    margin:.4rem 0 .3rem;
+  }
+  header.hero p{
+    margin:0 auto;
+    max-width:32rem;
+    opacity:.92;
+    font-size:.95rem;
+    line-height:1.5;
+  }
+  .robot{ margin:1rem auto 0; display:block; }
+  .robot .eye{ animation: blink 4.5s infinite; transform-origin:center; }
+  .robot.happy .eye{ animation:none; }
+  @keyframes blink{ 0%,92%,100%{transform:scaleY(1);} 95%{transform:scaleY(.15);} }
+  .robot.happy{ animation:bounce .6s ease; }
+  @keyframes bounce{
+    0%{transform:translateY(0) rotate(0);}
+    30%{transform:translateY(-12px) rotate(-4deg);}
+    55%{transform:translateY(0) rotate(3deg);}
+    75%{transform:translateY(-5px) rotate(-2deg);}
+    100%{transform:translateY(0) rotate(0);}
+  }
+
+  main{
+    max-width:980px;
+    margin:-1.6rem auto 0;
+    padding:0 1rem 3rem;
+  }
+
+  .card{
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(18,49,102,.10), 0 2px 6px rgba(18,49,102,.06);
+    padding:1.4rem 1.3rem 1.6rem;
+    margin-bottom:1.6rem;
+    border:1px solid #EAEFF7;
+  }
+  .card-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:.6rem;
+    margin-bottom:.3rem;
+    flex-wrap:wrap;
+  }
+  .card-head h2{
+    margin:0;
+    color:var(--blue-dark);
+    font-size:1.35rem;
+  }
+  .level-badge{
+    color:#fff;
+    font-weight:700;
+    font-size:.75rem;
+    letter-spacing:.04em;
+    padding:.25rem .7rem;
+    border-radius:999px;
+  }
+  .level-badge.facile{ background:var(--green); }
+  .level-badge.moyen{ background:var(--orange); }
+
+  .card p.desc{
+    color:var(--grey);
+    margin:.2rem 0 1.1rem;
+    font-size:.92rem;
+  }
+
+  .puzzle-layout{
+    display:flex;
+    gap:1.6rem;
+    flex-wrap:wrap;
+    align-items:flex-start;
+  }
+
+  .grid-scroll{
+    overflow-x:auto;
+    padding:2px;
+  }
+  .grid{
+    display:grid;
+    gap:3px;
+    width:max-content;
+  }
+  input.cell-input{
+    width:44px;
+    height:44px;
+    border:1.5px solid #cfd8e6;
+    border-radius:6px;
+    text-align:center;
+    text-transform:uppercase;
+    font-weight:700;
+    font-size:1.25rem;
+    font-family:inherit;
+    color:var(--blue-dark);
+    padding:0;
+    background:#fff;
+    position:relative;
+  }
+  input.cell-input:focus{ outline:none; border-color:var(--blue); background:var(--blue-light); }
+  input.cell-input.ok{ border-color:var(--green); background:var(--green-light); color:var(--green); }
+  input.cell-input.no{ border-color:var(--red); background:var(--red-light); }
+  input.cell-input.hl{ border-color:var(--orange); box-shadow:0 0 0 2px var(--orange-light); }
+
+  .cell-wrap{ position:relative; }
+  .cell-number{
+    position:absolute;
+    top:1px;
+    left:3px;
+    font-size:.62rem;
+    font-weight:700;
+    color:var(--blue);
+    pointer-events:none;
+    z-index:2;
+  }
+
+  .clue-lists{
+    flex:1;
+    min-width:220px;
+    display:flex;
+    gap:1.4rem;
+    flex-wrap:wrap;
+  }
+  .clue-col h3{
+    margin:0 0 .5rem;
+    font-size:.85rem;
+    color:var(--blue-dark);
+    text-transform:uppercase;
+    letter-spacing:.04em;
+  }
+  .clue-col ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    font-size:.88rem;
+  }
+  .clue-col li{
+    padding:.35rem .4rem;
+    border-radius:6px;
+    cursor:pointer;
+    line-height:1.35;
+  }
+  .clue-col li:hover{ background:var(--blue-light); }
+  .clue-col li.active{ background:var(--orange-light); }
+  .clue-col li b{ color:var(--blue-dark); margin-right:.3rem; }
+
+  details.bank{
+    background:var(--blue-light);
+    border-radius:10px;
+    padding:.6rem .9rem;
+    margin:1rem 0 0;
+    font-size:.85rem;
+  }
+  details.bank summary{ cursor:pointer; font-weight:700; color:var(--blue-dark); }
+  details.bank .words{ margin-top:.5rem; color:var(--blue-dark); }
+
+  .actions{
+    display:flex;
+    gap:.6rem;
+    flex-wrap:wrap;
+    margin-top:1.1rem;
+  }
+  button.btn{
+    border:none;
+    font-weight:700;
+    font-size:.9rem;
+    padding:.6rem 1.2rem;
+    border-radius:999px;
+    cursor:pointer;
+    color:#fff;
+  }
+  .facile button.btn.check{ background:var(--green); }
+  .moyen button.btn.check{ background:var(--orange); }
+  button.btn.reset{
+    background:transparent;
+    color:var(--grey);
+    border:1.5px solid #d7dee9;
+  }
+  button.btn.solution{
+    background:transparent;
+    color:var(--blue);
+    border:1.5px solid #cfe0f7;
+  }
+
+  .feedback{
+    margin-top:.9rem;
+    padding:.65rem .9rem;
+    border-radius:10px;
+    font-weight:700;
+    font-size:.9rem;
+    display:none;
+  }
+  .feedback.show{ display:block; }
+  .feedback.ok{ background:var(--green-light); color:var(--green); }
+  .feedback.no{ background:var(--orange-light); color:#a86300; }
+
+  .promo{
+    background:var(--blue-dark);
+    color:#fff;
+    border-radius:18px;
+    padding:1.4rem 1.3rem;
+    text-align:center;
+  }
+  .promo h3{ margin:0 0 .4rem; font-size:1.15rem; }
+  .promo p{ margin:0 0 1rem; opacity:.9; font-size:.9rem; }
+  .promo-links{
+    display:flex;
+    justify-content:center;
+    gap:.8rem;
+    flex-wrap:wrap;
+  }
+  .promo-links a{
+    display:inline-flex;
+    align-items:center;
+    gap:.45rem;
+    background:rgba(255,255,255,.12);
+    color:#fff;
+    text-decoration:none;
+    padding:.55rem 1.1rem;
+    border-radius:999px;
+    font-weight:700;
+    font-size:.85rem;
+  }
+  .promo-links a:hover{ background:rgba(255,255,255,.22); }
+  .dot{ width:.6rem; height:.6rem; border-radius:50%; display:inline-block; }
+  .dot.fb{ background:#4f8ff0; }
+  .dot.wa{ background:#4CD37B; }
+
+  footer{
+    text-align:center;
+    color:var(--grey);
+    font-size:.8rem;
+    padding:1.2rem 0 2rem;
+  }
+  footer strong{ color:var(--blue-dark); }
+
+  @media (max-width:480px){
+    .card{ padding:1.1rem .9rem 1.3rem; }
+    input.cell-input{ width:38px; height:38px; font-size:1.1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="brand">CIEL' &middot; Centre d'Innovation et d'Excellence L'Expert</div>
+  <h1>Version numérique du jeu</h1>
+  <p>Clique sur une définition pour voir la case correspondante, remplis la grille et vérifie tes réponses !</p>
+
+  <svg class="robot" id="robotSvg" width="110" height="120" viewBox="0 0 120 130">
+    <line x1="60" y1="6" x2="60" y2="20" stroke="#F5A623" stroke-width="3"/>
+    <circle cx="60" cy="4" r="5" fill="#F5A623"/>
+    <rect x="28" y="20" width="64" height="42" rx="10" fill="#fff" stroke="#123166" stroke-width="2.5"/>
+    <circle class="eye" cx="46" cy="41" r="6" fill="#1F4E8C"/>
+    <circle class="eye" cx="74" cy="41" r="6" fill="#1F4E8C"/>
+    <circle cx="46" cy="41" r="2.2" fill="#fff"/>
+    <circle cx="74" cy="41" r="2.2" fill="#fff"/>
+    <line x1="48" y1="55" x2="72" y2="55" stroke="#123166" stroke-width="2"/>
+    <rect x="20" y="65" width="80" height="52" rx="8" fill="#EAF1FB" stroke="#123166" stroke-width="2.5"/>
+    <rect x="44" y="82" width="32" height="18" rx="4" fill="#F5A623"/>
+    <line x1="20" y1="73" x2="6" y2="83" stroke="#123166" stroke-width="4" stroke-linecap="round"/>
+    <line x1="100" y1="73" x2="114" y2="83" stroke="#123166" stroke-width="4" stroke-linecap="round"/>
+    <line x1="42" y1="117" x2="42" y2="128" stroke="#123166" stroke-width="4" stroke-linecap="round"/>
+    <line x1="78" y1="117" x2="78" y2="128" stroke="#123166" stroke-width="4" stroke-linecap="round"/>
+  </svg>
+</header>
+
+<main>
+  <div id="puzzles"></div>
+
+  <div class="promo">
+    <h3>Envie de continuer l'aventure ?</h3>
+    <p>Le cahier complet propose 15 grilles sur 3 niveaux, avec un défi bonus. Contacte CIEL' pour te le procurer !</p>
+    <div class="promo-links">
+      <a href="https://wa.me/242055904165" target="_blank" rel="noopener">
+        <span class="dot wa"></span> WhatsApp CIEL'
+      </a>
+      <a href="#" onclick="return false;">
+        <span class="dot fb"></span> CIEL' sur Facebook
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p><strong>CIEL'</strong> — Centre d'Innovation et d'Excellence L'Expert<br>
+  Contact : +242 05 302 48 79 / 06 160 42 73</p>
+</footer>
+
+<script>
+const PUZZLES = {"internet": {"theme": "L'Internet", "level": "FACILE", "cells": [{"row": 0, "col": 0, "letter": "I"}, {"row": 0, "col": 1, "letter": "N"}, {"row": 0, "col": 2, "letter": "T"}, {"row": 0, "col": 3, "letter": "E"}, {"row": 0, "col": 4, "letter": "R"}, {"row": 0, "col": 5, "letter": "N"}, {"row": 0, "col": 6, "letter": "E"}, {"row": 0, "col": 7, "letter": "T"}, {"row": 1, "col": 0, "letter": "M"}, {"row": 2, "col": 0, "letter": "P"}, {"row": 3, "col": 0, "letter": "R"}, {"row": 4, "col": 0, "letter": "I"}, {"row": 5, "col": 0, "letter": "M"}, {"row": 6, "col": 0, "letter": "A"}, {"row": 7, "col": 0, "letter": "N"}, {"row": 8, "col": 0, "letter": "T"}, {"row": 9, "col": 0, "letter": "E"}, {"row": 1, "col": 1, "letter": "U"}, {"row": 2, "col": 1, "letter": "M"}, {"row": 3, "col": 1, "letter": "E"}, {"row": 4, "col": 1, "letter": "R"}, {"row": 5, "col": 1, "letter": "I"}, {"row": 6, "col": 1, "letter": "Q"}, {"row": 7, "col": 1, "letter": "U"}, {"row": 8, "col": 1, "letter": "E"}, {"row": 1, "col": 2, "letter": "A"}, {"row": 2, "col": 2, "letter": "B"}, {"row": 3, "col": 2, "letter": "L"}, {"row": 4, "col": 2, "letter": "E"}, {"row": 5, "col": 2, "letter": "T"}, {"row": 6, "col": 2, "letter": "T"}, {"row": 7, "col": 2, "letter": "E"}, {"row": 1, "col": 3, "letter": "C"}, {"row": 2, "col": 3, "letter": "R"}, {"row": 3, "col": 3, "letter": "A"}, {"row": 4, "col": 3, "letter": "N"}, {"row": 1, "col": 5, "letter": "A"}, {"row": 2, "col": 5, "letter": "V"}, {"row": 3, "col": 5, "letter": "I"}, {"row": 4, "col": 5, "letter": "G"}, {"row": 5, "col": 5, "letter": "A"}, {"row": 6, "col": 5, "letter": "T"}, {"row": 7, "col": 5, "letter": "E"}, {"row": 8, "col": 5, "letter": "U"}, {"row": 9, "col": 5, "letter": "R"}, {"row": 1, "col": 6, "letter": "P"}, {"row": 1, "col": 7, "letter": "P"}, {"row": 1, "col": 8, "letter": "A"}, {"row": 1, "col": 9, "letter": "R"}, {"row": 1, "col": 10, "letter": "E"}, {"row": 1, "col": 11, "letter": "I"}, {"row": 1, "col": 12, "letter": "L"}, {"row": 6, "col": 6, "letter": "O"}, {"row": 6, "col": 7, "letter": "U"}, {"row": 6, "col": 8, "letter": "R"}, {"row": 6, "col": 9, "letter": "N"}, {"row": 6, "col": 10, "letter": "E"}, {"row": 6, "col": 11, "letter": "V"}, {"row": 6, "col": 12, "letter": "I"}, {"row": 6, "col": 13, "letter": "S"}], "entries": [{"number": 1, "dir": "H", "clue": "Grand réseau mondial d'ordinateurs", "word": "INTERNET", "row": 0, "col": 0}, {"number": 1, "dir": "V", "clue": "Crée des objets en 3D", "word": "IMPRIMANTE", "row": 0, "col": 0}, {"number": 2, "dir": "V", "clue": "Contraire d'analogique", "word": "NUMERIQUE", "row": 0, "col": 1}, {"number": 3, "dir": "V", "clue": "Écran tactile portable", "word": "TABLETTE", "row": 0, "col": 2}, {"number": 4, "dir": "V", "clue": "Affiche l'image", "word": "ECRAN", "row": 0, "col": 3}, {"number": 5, "dir": "V", "clue": "Aide à trouver son chemin", "word": "NAVIGATEUR", "row": 0, "col": 5}, {"number": 6, "dir": "H", "clue": "Machine ou objet technique", "word": "APPAREIL", "row": 1, "col": 5}, {"number": 7, "dir": "H", "clue": "Outil pour visser", "word": "TOURNEVIS", "row": 6, "col": 5}], "nRows": 10, "nCols": 14, "words": ["APPAREIL", "ECRAN", "IMPRIMANTE", "INTERNET", "NAVIGATEUR", "NUMERIQUE", "TABLETTE", "TOURNEVIS"]}, "arduino": {"theme": "La Carte Arduino", "level": "MOYEN", "cells": [{"row": 0, "col": 0, "letter": "A"}, {"row": 0, "col": 1, "letter": "R"}, {"row": 0, "col": 2, "letter": "D"}, {"row": 0, "col": 3, "letter": "U"}, {"row": 0, "col": 4, "letter": "I"}, {"row": 0, "col": 5, "letter": "N"}, {"row": 0, "col": 6, "letter": "O"}, {"row": 1, "col": 0, "letter": "N"}, {"row": 2, "col": 0, "letter": "T"}, {"row": 3, "col": 0, "letter": "E"}, {"row": 4, "col": 0, "letter": "N"}, {"row": 5, "col": 0, "letter": "N"}, {"row": 6, "col": 0, "letter": "E"}, {"row": 1, "col": 1, "letter": "E"}, {"row": 2, "col": 1, "letter": "S"}, {"row": 3, "col": 1, "letter": "I"}, {"row": 4, "col": 1, "letter": "S"}, {"row": 5, "col": 1, "letter": "T"}, {"row": 6, "col": 1, "letter": "A"}, {"row": 7, "col": 1, "letter": "N"}, {"row": 8, "col": 1, "letter": "C"}, {"row": 9, "col": 1, "letter": "E"}, {"row": 1, "col": 2, "letter": "I"}, {"row": 2, "col": 2, "letter": "O"}, {"row": 3, "col": 2, "letter": "D"}, {"row": 4, "col": 2, "letter": "E"}, {"row": 1, "col": 3, "letter": "S"}, {"row": 2, "col": 3, "letter": "B"}, {"row": 1, "col": 4, "letter": "N"}, {"row": 2, "col": 4, "letter": "T"}, {"row": 3, "col": 4, "letter": "E"}, {"row": 4, "col": 4, "letter": "R"}, {"row": 5, "col": 4, "letter": "F"}, {"row": 6, "col": 4, "letter": "A"}, {"row": 7, "col": 4, "letter": "C"}, {"row": 8, "col": 4, "letter": "E"}, {"row": 3, "col": 5, "letter": "N"}, {"row": 3, "col": 6, "letter": "T"}, {"row": 3, "col": 7, "letter": "R"}, {"row": 3, "col": 8, "letter": "E"}, {"row": 3, "col": 9, "letter": "E"}, {"row": 6, "col": 5, "letter": "U"}, {"row": 6, "col": 6, "letter": "T"}, {"row": 6, "col": 7, "letter": "O"}, {"row": 6, "col": 8, "letter": "M"}, {"row": 6, "col": 9, "letter": "A"}, {"row": 6, "col": 10, "letter": "T"}, {"row": 6, "col": 11, "letter": "E"}], "entries": [{"number": 1, "dir": "H", "clue": "Carte électronique programmable", "word": "ARDUINO", "row": 0, "col": 0}, {"number": 1, "dir": "V", "clue": "Capte les signaux", "word": "ANTENNE", "row": 0, "col": 0}, {"number": 2, "dir": "V", "clue": "Freine le courant", "word": "RESISTANCE", "row": 0, "col": 1}, {"number": 3, "dir": "V", "clue": "Laisse passer le courant", "word": "DIODE", "row": 0, "col": 2}, {"number": 4, "dir": "V", "clue": "Type de câble", "word": "USB", "row": 0, "col": 3}, {"number": 5, "dir": "V", "clue": "Communique avec la machine", "word": "INTERFACE", "row": 0, "col": 4}, {"number": 6, "dir": "H", "clue": "Entrée d'un circuit", "word": "ENTREE", "row": 3, "col": 4}, {"number": 7, "dir": "H", "clue": "Fonctionne sans aide humaine", "word": "AUTOMATE", "row": 6, "col": 4}], "nRows": 10, "nCols": 12, "words": ["ANTENNE", "ARDUINO", "AUTOMATE", "DIODE", "ENTREE", "INTERFACE", "RESISTANCE", "USB"]}};
+
+const robotEl = document.getElementById("robotSvg");
+function celebrate(){
+  robotEl.classList.remove("happy");
+  void robotEl.offsetWidth;
+  robotEl.classList.add("happy");
+}
+
+function buildPuzzleCard(data, levelClass, badgeLabel){
+  const card = document.createElement("div");
+  card.className = "card " + levelClass;
+
+  const head = document.createElement("div");
+  head.className = "card-head";
+  head.innerHTML = `<h2>${data.theme}</h2><span class="level-badge ${levelClass}">${badgeLabel}</span>`;
+  card.appendChild(head);
+
+  const desc = document.createElement("p");
+  desc.className = "desc";
+  desc.textContent = "Remplis la grille à l'aide des définitions ci-contre.";
+  card.appendChild(desc);
+
+  const layout = document.createElement("div");
+  layout.className = "puzzle-layout";
+
+  const scroll = document.createElement("div");
+  scroll.className = "grid-scroll";
+  const grid = document.createElement("div");
+  grid.className = "grid";
+  grid.style.gridTemplateColumns = `repeat(${data.nCols}, 44px)`;
+  grid.style.gridTemplateRows = `repeat(${data.nRows}, 44px)`;
+
+  const inputs = {};
+  const answerMap = {};
+  const numberAt = {};
+  data.entries.forEach(e => { numberAt[`${e.row},${e.col}`] = e.number; });
+
+  data.cells.forEach(cell => {
+    const wrap = document.createElement("div");
+    wrap.className = "cell-wrap";
+    wrap.style.gridColumn = (cell.col + 1);
+    wrap.style.gridRow = (cell.row + 1);
+
+    const key = `${cell.row},${cell.col}`;
+    const num = numberAt[key];
+    if (num){
+      const badge = document.createElement("span");
+      badge.className = "cell-number";
+      badge.textContent = num;
+      wrap.appendChild(badge);
+    }
+
+    const inp = document.createElement("input");
+    inp.className = "cell-input";
+    inp.maxLength = 1;
+    inp.autocomplete = "off";
+    inp.dataset.row = cell.row;
+    inp.dataset.col = cell.col;
+    wrap.appendChild(inp);
+    grid.appendChild(wrap);
+
+    inputs[key] = inp;
+    answerMap[key] = cell.letter;
+
+    inp.addEventListener("input", () => {
+      inp.value = inp.value.toUpperCase().replace(/[^A-Z]/g, "");
+      inp.classList.remove("ok", "no");
+      if (inp.value){
+        const right = inputs[`${cell.row},${cell.col + 1}`];
+        const down = inputs[`${cell.row + 1},${cell.col}`];
+        if (right) right.focus();
+        else if (down) down.focus();
+      }
+    });
+    inp.addEventListener("keydown", (e) => {
+      if (e.key === "Backspace" && !inp.value){
+        const left = inputs[`${cell.row},${cell.col - 1}`];
+        if (left) left.focus();
+      }
+    });
+  });
+
+  scroll.appendChild(grid);
+  layout.appendChild(scroll);
+
+  // --- clue lists (readable, separate from the grid) ---
+  const clueLists = document.createElement("div");
+  clueLists.className = "clue-lists";
+
+  const across = data.entries.filter(e => e.dir === "H");
+  const down = data.entries.filter(e => e.dir === "V");
+
+  function buildClueCol(title, list){
+    const col = document.createElement("div");
+    col.className = "clue-col";
+    const h3 = document.createElement("h3");
+    h3.textContent = title;
+    col.appendChild(h3);
+    const ul = document.createElement("ul");
+    list.forEach(e => {
+      const li = document.createElement("li");
+      li.innerHTML = `<b>${e.number}.</b>${e.clue}`;
+      li.addEventListener("click", () => {
+        col.querySelectorAll("li").forEach(x => x.classList.remove("active"));
+        li.classList.add("active");
+        const target = inputs[`${e.row},${e.col}`];
+        if (target){
+          target.focus();
+          target.classList.add("hl");
+          setTimeout(() => target.classList.remove("hl"), 1200);
+        }
+      });
+      ul.appendChild(li);
+    });
+    col.appendChild(ul);
+    return col;
+  }
+
+  if (across.length) clueLists.appendChild(buildClueCol("\u2192 Horizontal", across));
+  if (down.length) clueLists.appendChild(buildClueCol("\u2193 Vertical", down));
+
+  layout.appendChild(clueLists);
+  card.appendChild(layout);
+
+  const bank = document.createElement("details");
+  bank.className = "bank";
+  bank.innerHTML = `<summary>Besoin d'aide ? Voir la banque de mots</summary>
+                     <div class="words">${[...data.words].sort().join(" • ")}</div>`;
+  card.appendChild(bank);
+
+  const actions = document.createElement("div");
+  actions.className = "actions";
+  actions.innerHTML = `
+    <button class="btn check">Vérifier</button>
+    <button class="btn reset">Recommencer</button>
+    <button class="btn solution">Voir la solution</button>
+  `;
+  card.appendChild(actions);
+
+  const feedback = document.createElement("div");
+  feedback.className = "feedback";
+  card.appendChild(feedback);
+
+  const total = Object.keys(answerMap).length;
+
+  actions.querySelector(".check").addEventListener("click", () => {
+    let correct = 0;
+    Object.keys(answerMap).forEach(key => {
+      const inp = inputs[key];
+      const ok = inp.value === answerMap[key];
+      inp.classList.toggle("ok", ok);
+      inp.classList.toggle("no", !ok && inp.value !== "");
+      if (ok) correct++;
+    });
+    feedback.classList.add("show");
+    if (correct === total){
+      feedback.className = "feedback show ok";
+      feedback.textContent = "Bravo ! Grille complète et juste. 🎉";
+      celebrate();
+    } else {
+      feedback.className = "feedback show no";
+      feedback.textContent = `${correct}/${total} lettres correctes. Continue !`;
+    }
+  });
+
+  actions.querySelector(".reset").addEventListener("click", () => {
+    Object.values(inputs).forEach(inp => {
+      inp.value = "";
+      inp.classList.remove("ok", "no");
+    });
+    feedback.classList.remove("show");
+  });
+
+  actions.querySelector(".solution").addEventListener("click", () => {
+    Object.keys(answerMap).forEach(key => {
+      inputs[key].value = answerMap[key];
+      inputs[key].classList.remove("no");
+      inputs[key].classList.add("ok");
+    });
+    feedback.className = "feedback show ok";
+    feedback.textContent = "Voici la solution complète.";
+  });
+
+  return card;
+}
+
+const container = document.getElementById("puzzles");
+container.appendChild(buildPuzzleCard(PUZZLES.internet, "facile", "FACILE"));
+container.appendChild(buildPuzzleCard(PUZZLES.arduino, "moyen", "MOYEN"));
+</script>
+
+</body>
+</html>
+
