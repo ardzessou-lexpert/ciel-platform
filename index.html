@@ -28,184 +28,220 @@
       backdrop-filter: blur(10px);
     }
     .nav {
-      max-width: 1200px; margin: auto; padding: 14px 24px;
-      display: flex; align-items: center; justify-content: space-between; gap: 30px;
+      max-width: 1200px; margin: auto; padding: 12px 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
     }
-    .logo { width: 95px; height: auto; }
-    nav { display: flex; gap: 24px; align-items: center; }
+    .logo { width: 85px; height: auto; }
+    nav { display: flex; gap: 22px; align-items: center; }
     nav a { font-size: 14px; font-weight: 600; color: #12213b; }
     nav a:hover { color: #d9a441; }
     .menu-btn {
       display: none; border: none; background: #0b4ea2; color: white;
-      padding: 10px 14px; border-radius: 8px; cursor: pointer;
+      padding: 9px 14px; border-radius: 8px; cursor: pointer; font-size: 13px;
     }
 
     /* HERO */
     .hero {
-      max-width: 1200px; margin: auto; padding: 95px 24px 80px;
-      display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center;
+      max-width: 1200px; margin: auto; padding: 70px 20px 60px;
+      display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center;
     }
     .badge {
       display: inline-block; background: #0b4ea2; color: white;
-      padding: 7px 14px; border-radius: 50px; font-size: 12px;
-      font-weight: bold; margin-bottom: 22px;
+      padding: 6px 13px; border-radius: 50px; font-size: 11px;
+      font-weight: bold; margin-bottom: 18px; letter-spacing: 0.5px;
     }
     .hero h1 {
-      font-size: clamp(42px, 6vw, 78px); line-height: 0.98;
-      letter-spacing: -3px; margin-bottom: 25px;
+      font-size: clamp(38px, 5.5vw, 72px); line-height: 0.98;
+      letter-spacing: -2px; margin-bottom: 20px;
     }
     .hero h1 span { color: #d9a441; }
-    .hero p { max-width: 650px; font-size: 19px; color: #5c6b82; margin-bottom: 32px; }
-    .buttons { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn { display: inline-block; padding: 14px 22px; border-radius: 8px; font-weight: bold; transition: 0.2s; }
+    .hero p { max-width: 600px; font-size: 17px; color: #5c6b82; margin-bottom: 26px; }
+    .buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 12px 20px; border-radius: 8px; font-weight: bold; transition: 0.2s; font-size: 14px; }
     .btn-primary { background: #d9a441; color: white; }
     .btn-primary:hover { transform: translateY(-2px); }
     .btn-dark { background: #0b4ea2; color: white; }
     .btn-light { background: white; border: 1px solid #dbe8f6; }
 
     .hero-card {
-      background: #0b4ea2; color: white; border-radius: 22px; padding: 42px;
-      min-height: 350px; display: flex; flex-direction: column;
+      background: #0b4ea2; color: white; border-radius: 20px; padding: 34px;
+      min-height: 280px; display: flex; flex-direction: column;
       justify-content: space-between; box-shadow: 0 20px 50px rgba(11,78,162,0.20);
     }
-    .hero-card .symbol { font-size: 70px; }
-    .hero-card h2 { font-size: 30px; line-height: 1.1; }
-    .hero-card p { color: #dff1ff; font-size: 15px; margin: 0; }
+    .hero-card .symbol { font-size: 55px; }
+    .hero-card h2 { font-size: 24px; line-height: 1.15; }
+    .hero-card p { color: #dff1ff; font-size: 14px; margin: 0; }
 
     /* SECTIONS */
-    section { padding: 80px 24px; }
+    section { padding: 60px 20px; }
     .container { max-width: 1200px; margin: auto; }
-    .section-title { margin-bottom: 40px; }
-    .section-title small { color: #d9a441; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; }
-    .section-title h2 { font-size: clamp(32px, 5vw, 48px); line-height: 1.05; margin-top: 8px; color: #12213b; }
-    .section-title p { color: #5c6b82; max-width: 650px; margin-top: 12px; }
+    .section-title { margin-bottom: 30px; }
+    .section-title small { color: #d9a441; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; font-size: 12px; }
+    .section-title h2 { font-size: clamp(28px, 4.5vw, 42px); line-height: 1.05; margin-top: 6px; color: #12213b; }
+    .section-title p { color: #5c6b82; max-width: 650px; margin-top: 10px; font-size: 15px; }
 
     /* UNIVERS */
     .univers { background: white; }
-    .universe-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .universe-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
     .universe {
-      background: #f7fbff; padding: 28px; border-radius: 14px;
+      background: #f7fbff; padding: 20px 18px; border-radius: 12px;
       border: 1px solid #dbe8f6; transition: 0.2s;
       display: block; cursor: pointer;
     }
-    .universe:hover { transform: translateY(-5px); border-color: #d9a441; }
+    .universe:hover { transform: translateY(-4px); border-color: #d9a441; }
     .universe:hover h3 { color: #d9a441; }
-    .universe-icon { font-size: 34px; margin-bottom: 18px; }
-    .universe h3 { font-size: 18px; margin-bottom: 7px; color: #12213b; transition: 0.2s; }
-    .universe p { font-size: 14px; color: #5c6b82; }
+    .universe-icon { font-size: 28px; margin-bottom: 12px; }
+    .universe h3 { font-size: 15px; margin-bottom: 5px; color: #12213b; transition: 0.2s; }
+    .universe p { font-size: 13px; color: #5c6b82; line-height: 1.45; }
 
     /* JEUX */
     .games { background: #0b4ea2; color: white; }
     .games .section-title small { color: #f4cf79; }
     .games .section-title h2 { color: white; }
     .games .section-title p { color: #dff1ff; }
-    .game-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .game-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .game-card {
-      background: #fff; color: #12213b; border-radius: 16px; padding: 32px;
+      background: #fff; color: #12213b; border-radius: 14px; padding: 26px;
       position: relative; overflow: hidden;
       display: flex; flex-direction: column;
     }
     .game-number {
-      position: absolute; right: 22px; top: 18px;
-      font-size: 50px; font-weight: 900; color: #dbe8f6;
+      position: absolute; right: 18px; top: 14px;
+      font-size: 42px; font-weight: 900; color: #dbe8f6;
     }
     .tag {
-      display: inline-block; padding: 5px 10px; background: #fef4e0;
-      color: #8a6a1c; font-size: 11px; font-weight: bold;
-      border-radius: 30px; margin-bottom: 18px;
+      display: inline-block; padding: 4px 9px; background: #fef4e0;
+      color: #8a6a1c; font-size: 10px; font-weight: bold;
+      border-radius: 30px; margin-bottom: 14px; letter-spacing: 0.5px;
     }
-    .game-card h3 { font-size: 24px; margin-bottom: 10px; color: #12213b; }
-    .game-card p { color: #5c6b82; margin-bottom: 25px; flex-grow: 1; }
-    .game-card .btn { margin-top: 8px; text-align: center; }
+    .game-card h3 { font-size: 20px; margin-bottom: 8px; color: #12213b; }
+    .game-card p { color: #5c6b82; margin-bottom: 20px; flex-grow: 1; font-size: 14px; }
+    .game-card .btn { margin-top: 6px; text-align: center; }
 
     /* FORMATIONS */
-    .formation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .formation { background: white; padding: 30px; border-radius: 15px; border: 1px solid #dbe8f6; }
-    .formation h3 { margin: 15px 0 8px; color: #12213b; }
-    .formation p { color: #5c6b82; font-size: 14px; }
-    .formation .icon { font-size: 36px; }
+    .formation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .formation { background: white; padding: 24px; border-radius: 14px; border: 1px solid #dbe8f6; }
+    .formation h3 { margin: 12px 0 6px; color: #12213b; font-size: 17px; }
+    .formation p { color: #5c6b82; font-size: 13.5px; }
+    .formation .icon { font-size: 30px; }
 
-    /* HISTOIRE */
+    /* HISTOIRE / SUMMER CAMP */
     .history { background: #e8f1fc; }
     .history-box {
-      background: white; padding: 45px; border-radius: 18px;
-      display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 50px; align-items: center;
+      background: white; padding: 34px; border-radius: 16px;
+      display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 34px; align-items: center;
     }
-    .history-big { font-size: 70px; font-weight: 900; color: #d9a441; }
-    .history-box h3 { font-size: 30px; margin-bottom: 12px; color: #12213b; }
-    .history-box p { color: #5c6b82; }
+    .history-big { font-size: 55px; font-weight: 900; color: #d9a441; }
+    .history-box h3 { font-size: 24px; margin-bottom: 10px; color: #12213b; }
+    .history-box p { color: #5c6b82; font-size: 14.5px; }
 
-    /* BOUTIQUE — Format portrait 4:5 */
-    .shop-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    /* BOUTIQUE */
+    .shop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
     .shop-card {
-      background: white; border: 1px solid #dbe8f6; border-radius: 16px;
+      background: white; border: 1px solid #dbe8f6; border-radius: 14px;
       padding: 0; overflow: hidden;
       display: flex; flex-direction: column;
     }
     .shop-card-img {
       width: 100%; 
-      aspect-ratio: 4 / 5;              /* ← portrait vertical */
+      aspect-ratio: 4 / 5;
       object-fit: cover;
-      object-position: center top;       /* ← priorité au haut de l'image */
+      object-position: center top;
       background: #f7fbff; 
       border-bottom: 1px solid #dbe8f6;
     }
-    .shop-card-body { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
-    .shop-card h3 { font-size: 18px; color: #12213b; margin: 12px 0 8px; line-height: 1.3; }
-    .shop-card p { color: #5c6b82; font-size: 14px; margin-bottom: 12px; flex-grow: 1; }
-    .price { font-size: 22px; font-weight: 900; color: #d9a441; margin: 8px 0 18px; }
+    .shop-card-body { padding: 16px; display: flex; flex-direction: column; flex-grow: 1; }
+    .shop-card h3 { font-size: 15px; color: #12213b; margin: 10px 0 6px; line-height: 1.3; }
+    .shop-card p { color: #5c6b82; font-size: 13px; margin-bottom: 10px; flex-grow: 1; }
+    .price { font-size: 18px; font-weight: 900; color: #d9a441; margin: 6px 0 14px; }
 
-    /* GUIDES / SCI-MAG */
-    .two-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    .info-card { background: white; border-radius: 16px; padding: 35px; border: 1px solid #dbe8f6; }
-    .info-card h3 { font-size: 25px; margin: 12px 0; color: #12213b; }
-    .info-card p { color: #5c6b82; }
+    /* RESSOURCES */
+    .ressources { background: #f7fbff; }
+    .ressources-category {
+      margin-bottom: 40px;
+      padding: 24px;
+      background: white;
+      border-radius: 16px;
+      border: 1px solid #dbe8f6;
+    }
+    .ressources-category:last-child { margin-bottom: 0; }
+    .ressources-category-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 18px; padding-bottom: 14px;
+      border-bottom: 2px solid #f0f6fd;
+    }
+    .ressources-category-icon { font-size: 30px; }
+    .ressources-category-title h3 { font-size: 20px; color: #12213b; margin: 0; }
+    .ressources-category-title p { font-size: 13.5px; color: #5c6b82; margin: 2px 0 0 0; }
+    
+    .ressources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .ressource-card {
+      background: #f7fbff; padding: 18px;
+      border-radius: 12px; border: 1px solid #dbe8f6;
+      display: flex; flex-direction: column;
+    }
+    .ressource-card h4 { font-size: 15px; color: #12213b; margin: 10px 0 6px; line-height: 1.3; }
+    .ressource-card p { color: #5c6b82; font-size: 13px; flex-grow: 1; margin-bottom: 12px; }
     .coming-badge {
       display: inline-block; background: #f0f6fd; color: #0b4ea2;
-      padding: 6px 10px; border-radius: 20px; font-size: 11px; font-weight: bold;
+      padding: 5px 10px; border-radius: 20px; font-size: 10px; font-weight: bold;
+      letter-spacing: 0.5px; align-self: flex-start;
     }
     .badge-dispo { background: #e6f6ec; color: #16805b; }
+    .badge-gratuit { background: #e8f5ee; color: #1a6b3f; }
+    .badge-spirituel { background: #f4ecdc; color: #8a6a1c; }
 
     /* VIDEO */
     .video-section { background: white; }
-    .video-box { background: #0b4ea2; border-radius: 18px; overflow: hidden; max-width: 900px; margin: auto; }
+    .video-box { background: #0b4ea2; border-radius: 16px; overflow: hidden; max-width: 800px; margin: auto; }
     .video-box video { width: 100%; display: block; }
 
     /* CTA */
     .cta { background: #0b4ea2; color: white; text-align: center; }
-    .cta h2 { font-size: clamp(35px, 5vw, 55px); line-height: 1; margin-bottom: 15px; }
-    .cta p { margin-bottom: 25px; color: #dff1ff; }
+    .cta h2 { font-size: clamp(30px, 4.5vw, 48px); line-height: 1; margin-bottom: 12px; }
+    .cta p { margin-bottom: 22px; color: #dff1ff; }
     .cta .btn { background: #d9a441; color: white; }
     .cta .btn:hover { background: #f4cf79; color: #0b4ea2; }
 
     /* FOOTER */
-    footer { background: #082f67; color: white; padding: 45px 24px; }
-    .footer-content { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
-    footer p { color: #b8c8e0; font-size: 13px; }
-    .footer-title { font-weight: bold; font-size: 18px; margin-bottom: 8px; color: #f4cf79; }
+    footer { background: #082f67; color: white; padding: 34px 20px; }
+    .footer-content { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    footer p { color: #b8c8e0; font-size: 12.5px; }
+    .footer-title { font-weight: bold; font-size: 17px; margin-bottom: 6px; color: #f4cf79; }
 
     /* MOBILE */
+    @media (max-width: 1000px) {
+      .shop-grid { grid-template-columns: repeat(2, 1fr); }
+      .ressources-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; padding-top: 65px; }
+      .hero { grid-template-columns: 1fr; padding: 50px 18px 40px; gap: 30px; }
+      .hero-card { padding: 26px; min-height: 220px; }
       .universe-grid { grid-template-columns: repeat(2, 1fr); }
       .formation-grid { grid-template-columns: 1fr; }
-      .history-box { grid-template-columns: 1fr; }
+      .history-box { grid-template-columns: 1fr; gap: 20px; padding: 26px; }
       .game-grid { grid-template-columns: 1fr; }
-      .shop-grid { grid-template-columns: repeat(2, 1fr); }
+      .history-big { font-size: 42px; }
     }
     @media (max-width: 650px) {
-      .nav { padding: 12px 18px; }
+      .nav { padding: 10px 16px; }
       nav {
-        display: none; position: absolute; top: 70px; left: 0; right: 0;
-        background: white; padding: 20px; flex-direction: column; border-bottom: 1px solid #dbe8f6;
+        display: none; position: absolute; top: 60px; left: 0; right: 0;
+        background: white; padding: 18px; flex-direction: column; 
+        border-bottom: 1px solid #dbe8f6;
       }
       nav.open { display: flex; }
       .menu-btn { display: block; }
-      .hero { padding-left: 18px; padding-right: 18px; }
-      section { padding: 60px 18px; }
-      .universe-grid, .game-grid, .shop-grid, .two-columns { grid-template-columns: 1fr; }
-      .hero-card { padding: 30px; }
-      .history-box { padding: 30px; }
+      section { padding: 42px 16px; }
+      .section-title { margin-bottom: 22px; }
+      .universe-grid, .game-grid, .shop-grid, .ressources-grid { grid-template-columns: 1fr; }
+      .universe { padding: 16px; }
+      .game-card { padding: 22px; }
+      .shop-card-img { aspect-ratio: 1 / 1; }
+      .cta h2 { font-size: 30px; }
+      .hero h1 { letter-spacing: -1px; }
+      footer { padding: 26px 16px; }
+      .footer-content { flex-direction: column; gap: 14px; }
     }
   </style>
 </head>
@@ -223,7 +259,7 @@
         <a href="#jeux">Jeux</a>
         <a href="#formations">Formations</a>
         <a href="#boutique">Boutique</a>
-        <a href="creations/y-yesu/">Créations</a>
+        <a href="#ressources">Ressources</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -271,10 +307,10 @@
           <a href="#boutique" class="universe"><div class="universe-icon">🧩</div><h3>Jeux & cahiers</h3><p>Mots mêlés, mots fléchés, Sudoku et jeux instructifs.</p></a>
           <a href="#formations" class="universe"><div class="universe-icon">🤖</div><h3>Technologie & Robotique</h3><p>Apprendre à construire, programmer et innover.</p></a>
           <a href="#formations" class="universe"><div class="universe-icon">💻</div><h3>Informatique & Infographie</h3><p>Des compétences numériques pour créer et progresser.</p></a>
-          <a href="#guides" class="universe"><div class="universe-icon">📖</div><h3>Guides numériques</h3><p>Des ressources conçues pour accompagner les jeunes.</p></a>
+          <a href="#ressources" class="universe"><div class="universe-icon">📖</div><h3>Guides numériques</h3><p>Des ressources conçues pour accompagner les jeunes.</p></a>
           <a href="#boutique" class="universe"><div class="universe-icon">👕</div><h3>Boutique</h3><p>Collections vestimentaires et produits CIEL'.</p></a>
           <a href="creations/y-yesu/" class="universe"><div class="universe-icon">🎨</div><h3>Créations artistiques</h3><p>Tableaux, œuvres et collections à découvrir.</p></a>
-          <a href="#scimag" class="universe"><div class="universe-icon">🔬</div><h3>Sci-Mag</h3><p>Le mag scientifique préféré des enfants révolutionnaires.</p></a>
+          <a href="#ressources" class="universe"><div class="universe-icon">🔬</div><h3>Sci-Mag</h3><p>Le mag scientifique préféré des enfants révolutionnaires.</p></a>
         </div>
       </div>
     </section>
@@ -310,10 +346,9 @@
             <h3>30 Héros de la Bible</h3>
             <p>
               Un jeu de cartes éducatif pour découvrir les grands personnages
-              bibliques. Scanne les QR codes pour explorer chaque héros,
-              apprendre les règles et jouer en version numérique.
+              bibliques. Scanne les QR codes pour explorer chaque héros.
             </p>
-            <a href="30HBible/comment-jouer/" class="btn btn-primary" style="margin-bottom:8px;">Comment jouer →</a>
+            <a href="30HBible/comment-jouer/" class="btn btn-primary" style="margin-bottom:6px;">Comment jouer →</a>
             <a href="30HBible/versionnum/" class="btn btn-dark">Version numérique →</a>
           </article>
 
@@ -353,27 +388,6 @@
       </div>
     </section>
 
-    <section>
-      <div class="container">
-        <div class="section-title">
-          <small>Notre histoire</small>
-          <h2>Une expérience qui continue</h2>
-        </div>
-        <div class="history-box">
-          <div>
-            <div class="history-big">01</div>
-            <span class="coming-badge">EXPÉRIENCE CIEL'</span>
-          </div>
-          <div>
-            <h3>CLUB L'EXPERT</h3>
-            <p>Avant CIEL', le CLUB L'EXPERT proposait déjà des jeux instructifs et des activités destinées à apprendre autrement.</p>
-            <br>
-            <p>Les expériences en Informatique et Infographie font également partie de cette histoire.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="univers" id="boutique">
       <div class="container">
         <div class="section-title">
@@ -388,32 +402,32 @@
             <div class="shop-card-body">
               <span class="coming-badge badge-dispo">DISPONIBLE</span>
               <h3>T-shirt « Nani Mokonzi Yesu »</h3>
-              <p>Coupe moderne, 100% coton. Disponible en noir et blanc.</p>
+              <p>Coupe moderne, 100% coton. Noir et blanc.</p>
               <div class="price">5 500 FCFA</div>
               <a href="#contact" class="btn btn-primary">Commander →</a>
             </div>
           </div>
 
           <div class="shop-card">
-            <img src="assets/boutique/cahier-30h-bible.jpg" alt="Cahiers de jeux 30 Héros de la Bible" class="shop-card-img" loading="lazy">
+            <img src="assets/boutique/cahier-30h-bible.jpg" alt="Cahiers 30 Héros de la Bible" class="shop-card-img" loading="lazy">
             <div class="shop-card-body">
               <span class="coming-badge badge-dispo">DISPONIBLE</span>
-              <h3>Cahiers de jeux — Histoire + Mots Mêlés 30 Héros de la Bible</h3>
-              <p>Apprendre en s'amusant, grandir dans la foi. Idéal pour enfants, jeunes et familles.</p>
+              <h3>Cahiers 30 Héros de la Bible</h3>
+              <p>Histoire + Mots Mêlés. Idéal pour enfants, jeunes et familles.</p>
               <div class="price">3 000 FCFA</div>
               <a href="#contact" class="btn btn-primary">Commander →</a>
             </div>
           </div>
 
           <div class="shop-card">
-            <img src="assets/boutique/cahier-jeux-techno.jpeg" alt="Cahier Jeux Technologie et Robotique" class="shop-card-img" loading="lazy">
+            <img src="assets/boutique/cahier-jeux-techno.jpeg" alt="Cahier Jeux Technologie" class="shop-card-img" loading="lazy">
             <div class="shop-card-body">
               <span class="coming-badge badge-dispo">DISPONIBLE</span>
-              <h3>Cahier de Jeux — Technologie & Robotique</h3>
-              <p>Mots fléchés éducatifs autour d'Internet, Arduino et de la robotique. Version démo numérique disponible.</p>
+              <h3>Cahier Jeux — Technologie & Robotique</h3>
+              <p>Mots fléchés éducatifs autour d'Arduino et robotique.</p>
               <div class="price">1 500 FCFA</div>
-              <a href="#contact" class="btn btn-primary" style="margin-bottom:8px;">Commander →</a>
-              <a href="games/mots-fleches/index.html" class="btn btn-dark">Démo numérique →</a>
+              <a href="#contact" class="btn btn-primary" style="margin-bottom:6px;">Commander →</a>
+              <a href="games/mots-fleches/index.html" class="btn btn-dark">Démo →</a>
             </div>
           </div>
 
@@ -422,9 +436,9 @@
             <div class="shop-card-body">
               <span class="coming-badge badge-dispo">DISPONIBLE</span>
               <h3>Tableau « Y — YESU »</h3>
-              <p>Un symbole de foi, un rappel de l'œuvre du Christ. Une pièce à contempler et à transmettre.</p>
+              <p>Un symbole de foi, un rappel de l'œuvre du Christ.</p>
               <div class="price">À partir de 5 500 FCFA</div>
-              <a href="creations/y-yesu/" class="btn btn-dark" style="margin-bottom:8px;">Découvrir →</a>
+              <a href="creations/y-yesu/" class="btn btn-dark" style="margin-bottom:6px;">Découvrir →</a>
               <a href="#contact" class="btn btn-primary">Commander →</a>
             </div>
           </div>
@@ -433,43 +447,78 @@
       </div>
     </section>
 
-    <section id="guides">
+    <section class="ressources" id="ressources">
       <div class="container">
         <div class="section-title">
           <small>Ressources</small>
-          <h2>Guides numériques</h2>
+          <h2>Guides & ressources</h2>
+          <p>Un écosystème de contenus pour apprendre, grandir et réussir — dans la foi et dans la vie.</p>
         </div>
-        <div class="two-columns">
-          <div class="info-card">
-            <span class="coming-badge">À VENIR</span>
-            <h3>📖 Guide pré-ados</h3>
-            <p>Un guide de méditation biblique conçu spécialement pour accompagner les pré-adolescents.</p>
-          </div>
-          <div class="info-card">
-            <span class="coming-badge">À VENIR</span>
-            <h3>📖 Guide ados</h3>
-            <p>Une ressource adaptée aux adolescents pour développer une vie de méditation et de réflexion.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="history" id="scimag">
-      <div class="container">
-        <div class="two-columns">
-          <div class="info-card">
-            <span class="coming-badge">BIENTÔT</span>
-            <h3>🔬 Sci-Mag</h3>
-            <p><strong>Le mag scientifique préféré des enfants révolutionnaires.</strong></p>
-            <br>
-            <p>Un univers scientifique destiné aux jeunes, actuellement en préparation.</p>
+        <!-- CATÉGORIE 1 : SPIRITUEL -->
+        <div class="ressources-category">
+          <div class="ressources-category-header">
+            <div class="ressources-category-icon">🕊️</div>
+            <div class="ressources-category-title">
+              <h3>Spirituel & Foi</h3>
+              <p>Guides et ressources pour grandir dans la méditation et la foi.</p>
+            </div>
           </div>
-          <div class="info-card">
-            <span class="coming-badge">BIENTÔT</span>
-            <h3>🧩 Cahiers éducatifs</h3>
-            <p>Mots mêlés thématiques, mots fléchés, Sudoku, cartes de jeux instructifs et cahiers Technologie & Robotique.</p>
+          <div class="ressources-grid">
+
+            <div class="ressource-card">
+              <span class="coming-badge badge-gratuit">GRATUIT • À VENIR</span>
+              <h4>📖 Guide de méditation pré-ados</h4>
+              <p>Un guide de méditation biblique conçu spécialement pour accompagner les pré-adolescents.</p>
+            </div>
+
+            <div class="ressource-card">
+              <span class="coming-badge badge-gratuit">GRATUIT • À VENIR</span>
+              <h4>📖 Guide de méditation ados</h4>
+              <p>Une ressource adaptée aux adolescents pour développer une vie de méditation et de réflexion.</p>
+            </div>
+
+            <div class="ressource-card">
+              <span class="coming-badge badge-gratuit">GRATUIT • À VENIR</span>
+              <h4>✝️ Mots mêlés chrétiens</h4>
+              <p>Des jeux de mots mêlés autour de thèmes chrétiens pour apprendre, mémoriser et s'amuser.</p>
+            </div>
+
           </div>
         </div>
+
+        <!-- CATÉGORIE 2 : ÉDUCATION -->
+        <div class="ressources-category">
+          <div class="ressources-category-header">
+            <div class="ressources-category-icon">📚</div>
+            <div class="ressources-category-title">
+              <h3>Éducation & Réussite</h3>
+              <p>Guides pratiques pour apprendre mieux, s'organiser et réussir.</p>
+            </div>
+          </div>
+          <div class="ressources-grid">
+
+            <div class="ressource-card">
+              <span class="coming-badge badge-gratuit">GRATUIT • À VENIR</span>
+              <h4>📖 Comment réussir à l'école</h4>
+              <p>Méthodes, astuces et conseils pratiques pour mieux apprendre, s'organiser et progresser.</p>
+            </div>
+
+            <div class="ressource-card">
+              <span class="coming-badge badge-gratuit">GRATUIT • À VENIR</span>
+              <h4>📖 Méthodologie d'apprentissage</h4>
+              <p>Comprendre comment fonctionne l'apprentissage, mémoriser efficacement et gagner en confiance.</p>
+            </div>
+
+            <div class="ressource-card">
+              <span class="coming-badge">BIENTÔT</span>
+              <h4>🔬 Sci-Mag</h4>
+              <p>Le mag scientifique préféré des enfants révolutionnaires. Un univers de découvertes à venir.</p>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
 
