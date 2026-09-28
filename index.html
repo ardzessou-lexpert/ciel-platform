@@ -135,7 +135,7 @@
     .history-box h3 { font-size: 30px; margin-bottom: 12px; color: #12213b; }
     .history-box p { color: #5c6b82; }
 
-    /* BOUTIQUE */
+    /* BOUTIQUE — Format portrait 4:5 */
     .shop-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .shop-card {
       background: white; border: 1px solid #dbe8f6; border-radius: 16px;
@@ -143,8 +143,12 @@
       display: flex; flex-direction: column;
     }
     .shop-card-img {
-      width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
-      background: #f7fbff; border-bottom: 1px solid #dbe8f6;
+      width: 100%; 
+      aspect-ratio: 4 / 5;              /* ← portrait vertical */
+      object-fit: cover;
+      object-position: center top;       /* ← priorité au haut de l'image */
+      background: #f7fbff; 
+      border-bottom: 1px solid #dbe8f6;
     }
     .shop-card-body { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
     .shop-card h3 { font-size: 18px; color: #12213b; margin: 12px 0 8px; line-height: 1.3; }
@@ -187,6 +191,7 @@
       .formation-grid { grid-template-columns: 1fr; }
       .history-box { grid-template-columns: 1fr; }
       .game-grid { grid-template-columns: 1fr; }
+      .shop-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 650px) {
       .nav { padding: 12px 18px; }
@@ -379,7 +384,7 @@
         <div class="shop-grid">
 
           <div class="shop-card">
-            <img src="assets/boutique/tshirt-nani-mokonzi.jpeg" alt="T-shirt Nani Mokonzi Yesu" class="shop-card-img" loading="lazy" width="600" height="600">
+            <img src="assets/boutique/tshirt-nani-mokonzi.jpeg" alt="T-shirt Nani Mokonzi Yesu" class="shop-card-img" loading="lazy">
             <div class="shop-card-body">
               <span class="coming-badge badge-dispo">DISPONIBLE</span>
               <h3>T-shirt « Nani Mokonzi Yesu »</h3>
@@ -390,7 +395,7 @@
           </div>
 
           <div class="shop-card">
-            <img src="assets/boutique/cahier-30h-bible.jpg" alt="Cahiers de jeux 30 Héros de la Bible" class="shop-card-img" loading="lazy" width="600" height="600">
+            <img src="assets/boutique/cahier-30h-bible.jpg" alt="Cahiers de jeux 30 Héros de la Bible" class="shop-card-img" loading="lazy">
             <div class="shop-card-body">
               <span class="coming-badge badge-dispo">DISPONIBLE</span>
               <h3>Cahiers de jeux — Histoire + Mots Mêlés 30 Héros de la Bible</h3>
@@ -401,7 +406,7 @@
           </div>
 
           <div class="shop-card">
-            <img src="assets/boutique/cahier-jeux-techno.jpeg" alt="Cahier Jeux Technologie et Robotique" class="shop-card-img" loading="lazy" width="600" height="600">
+            <img src="assets/boutique/cahier-jeux-techno.jpeg" alt="Cahier Jeux Technologie et Robotique" class="shop-card-img" loading="lazy">
             <div class="shop-card-body">
               <span class="coming-badge badge-dispo">DISPONIBLE</span>
               <h3>Cahier de Jeux — Technologie & Robotique</h3>
@@ -413,7 +418,7 @@
           </div>
 
           <div class="shop-card">
-            <img src="assets/boutique/tableau-y.jpeg" alt="Tableau Y — YESU" class="shop-card-img" loading="lazy" width="600" height="600">
+            <img src="assets/boutique/tableau-y.jpeg" alt="Tableau Y — YESU" class="shop-card-img" loading="lazy">
             <div class="shop-card-body">
               <span class="coming-badge badge-dispo">DISPONIBLE</span>
               <h3>Tableau « Y — YESU »</h3>
