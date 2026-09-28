@@ -97,10 +97,11 @@
     .games .section-title small { color: #f4cf79; }
     .games .section-title h2 { color: white; }
     .games .section-title p { color: #dff1ff; }
-    .game-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .game-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .game-card {
       background: #fff; color: #12213b; border-radius: 16px; padding: 32px;
       position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
     }
     .game-number {
       position: absolute; right: 22px; top: 18px;
@@ -111,8 +112,9 @@
       color: #8a6a1c; font-size: 11px; font-weight: bold;
       border-radius: 30px; margin-bottom: 18px;
     }
-    .game-card h3 { font-size: 27px; margin-bottom: 10px; color: #12213b; }
-    .game-card p { color: #5c6b82; margin-bottom: 25px; }
+    .game-card h3 { font-size: 24px; margin-bottom: 10px; color: #12213b; }
+    .game-card p { color: #5c6b82; margin-bottom: 25px; flex-grow: 1; }
+    .game-card .btn { margin-top: 8px; text-align: center; }
 
     /* FORMATIONS */
     .formation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -172,6 +174,7 @@
       .universe-grid { grid-template-columns: repeat(2, 1fr); }
       .formation-grid { grid-template-columns: 1fr; }
       .history-box { grid-template-columns: 1fr; }
+      .game-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 650px) {
       .nav { padding: 12px 18px; }
@@ -266,6 +269,7 @@
           <p>Découvre les premières expériences interactives développées par CIEL'.</p>
         </div>
         <div class="game-grid">
+
           <article class="game-card">
             <span class="tag">GRATUIT • JOUER</span>
             <span class="game-number">01</span>
@@ -273,13 +277,28 @@
             <p>Un quiz biblique interactif autour de l'histoire de Joseph.</p>
             <a href="games/manteau-joseph/index.html" class="btn btn-primary">Jouer maintenant →</a>
           </article>
+
           <article class="game-card">
             <span class="tag">DÉMO • ÉDUCATIF</span>
             <span class="game-number">02</span>
-            <h3>Mots fléchés CIEL'</h3>
+            <h3>Mots fléchés Technologie et Robotique</h3>
             <p>Un jeu éducatif autour d'Internet, de la technologie et de l'univers Arduino.</p>
             <a href="games/mots-fleches/index.html" class="btn btn-dark">Découvrir →</a>
           </article>
+
+          <article class="game-card">
+            <span class="tag">30 CARTES • INTERACTIF</span>
+            <span class="game-number">03</span>
+            <h3>30 Héros de la Bible</h3>
+            <p>
+              Un jeu de cartes éducatif pour découvrir les grands personnages
+              bibliques. Scanne les QR codes pour explorer chaque héros,
+              apprendre les règles et jouer en version numérique.
+            </p>
+            <a href="30HBible/comment-jouer/" class="btn btn-primary" style="margin-bottom:8px;">Comment jouer →</a>
+            <a href="30HBible/demo/" class="btn btn-dark">Version numérique →</a>
+          </article>
+
         </div>
       </div>
     </section>
