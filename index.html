@@ -134,11 +134,20 @@
     .history-box p { color: #5c6b82; }
 
     /* BOUTIQUE */
-    .shop-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    .shop-card { background: white; border: 1px solid #dbe8f6; border-radius: 16px; padding: 32px; }
-    .shop-card h3 { color: #12213b; }
-    .shop-card p { color: #5c6b82; }
-    .price { font-size: 25px; font-weight: 900; color: #d9a441; margin: 12px 0 20px; }
+    .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .shop-card {
+      background: white; border: 1px solid #dbe8f6; border-radius: 16px;
+      padding: 0; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .shop-card-img {
+      width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
+      background: #f7fbff; border-bottom: 1px solid #dbe8f6;
+    }
+    .shop-card-body { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
+    .shop-card h3 { font-size: 18px; color: #12213b; margin: 12px 0 8px; line-height: 1.3; }
+    .shop-card p { color: #5c6b82; font-size: 14px; margin-bottom: 12px; flex-grow: 1; }
+    .price { font-size: 22px; font-weight: 900; color: #d9a441; margin: 8px 0 18px; }
 
     /* GUIDES / SCI-MAG */
     .two-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
@@ -149,6 +158,8 @@
       display: inline-block; background: #f0f6fd; color: #0b4ea2;
       padding: 6px 10px; border-radius: 20px; font-size: 11px; font-weight: bold;
     }
+    .badge-dispo { background: #e6f6ec; color: #16805b; }
+    .badge-promo { background: #fdeceb; color: #b3261e; }
 
     /* VIDEO */
     .video-section { background: white; }
@@ -174,7 +185,7 @@
       .universe-grid { grid-template-columns: repeat(2, 1fr); }
       .formation-grid { grid-template-columns: 1fr; }
       .history-box { grid-template-columns: 1fr; }
-      .game-grid { grid-template-columns: 1fr; }
+      .game-grid, .shop-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 650px) {
       .nav { padding: 12px 18px; }
@@ -206,6 +217,7 @@
         <a href="#jeux">Jeux</a>
         <a href="#formations">Formations</a>
         <a href="#boutique">Boutique</a>
+        <a href="creations/y-yesu/">Créations</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -364,20 +376,53 @@
           <p>Produits et créations CIEL'. De nouvelles collections arriveront progressivement.</p>
         </div>
         <div class="shop-grid">
+
           <div class="shop-card">
-            <span class="coming-badge">DISPONIBLE</span>
-            <h3>T-shirt « Nani Mokonzi Yesu »</h3>
-            <p>Une création vestimentaire porteuse d'un message.</p>
-            <div class="price">5 500 F</div>
-            <a href="#contact" class="btn btn-primary">Commander →</a>
+            <img src="assets/boutique/TEESH_NMY.jpg" alt="T-shirt Nani Mokonzi Yesu" class="shop-card-img">
+            <div class="shop-card-body">
+              <span class="coming-badge badge-dispo">DISPONIBLE</span>
+              <h3>T-shirt « Nani Mokonzi Yesu »</h3>
+              <p>Coupe moderne, 100% coton. Disponible en noir et blanc.</p>
+              <div class="price">5 500 FCFA</div>
+              <a href="#contact" class="btn btn-primary">Commander →</a>
+            </div>
           </div>
+
           <div class="shop-card">
-            <span class="coming-badge">CRÉATIONS</span>
-            <h3>Tableaux & créations artistiques</h3>
-            <p>Des œuvres et collections artistiques proposées progressivement par CIEL'.</p>
-            <div class="price">À partir de 5 500 F</div>
-            <a href="#contact" class="btn btn-dark">Découvrir →</a>
+            <img src="assets/boutique/PUB_30HDELABIBLE_MOTMELES.jpg" alt="Cahiers de jeux 30 Héros de la Bible" class="shop-card-img">
+            <div class="shop-card-body">
+              <span class="coming-badge badge-dispo">DISPONIBLE</span>
+              <h3>Cahiers de jeux — Histoire + Mots Mêlés 30 Héros de la Bible</h3>
+              <p>Apprendre en s'amusant, grandir dans la foi. Idéal pour enfants, jeunes et familles.</p>
+              <div class="price">3 000 FCFA</div>
+              <a href="#contact" class="btn btn-primary">Commander →</a>
+            </div>
           </div>
+
+          <div class="shop-card">
+            <img src="assets/boutique/pub-jeux-techno.jpg" alt="Cahier Jeux Technologie et Robotique" class="shop-card-img">
+            <div class="shop-card-body">
+              <span class="coming-badge badge-dispo">DISPONIBLE</span>
+              <h3>Cahier de Jeux — Technologie & Robotique</h3>
+              <p>Mots fléchés éducatifs autour d'Internet, Arduino et de la robotique. Version démo numérique disponible.</p>
+              <div class="price">1 500 FCFA</div>
+              <a href="#contact" class="btn btn-primary" style="margin-bottom:8px;">Commander →</a>
+              <a href="games/mots-fleches/index.html" class="btn btn-dark">Démo numérique →</a>
+            </div>
+          </div>
+
+          <div class="shop-card">
+            <img src="assets/boutique/pub-tableau-y.jpg" alt="Tableau Y — YESU" class="shop-card-img">
+            <div class="shop-card-body">
+              <span class="coming-badge badge-dispo">DISPONIBLE</span>
+              <h3>Tableau « Y — YESU »</h3>
+              <p>Un symbole de foi, un rappel de l'œuvre du Christ. Une pièce à contempler et à transmettre.</p>
+              <div class="price">À partir de 5 500 FCFA</div>
+              <a href="creations/y-yesu/" class="btn btn-dark" style="margin-bottom:8px;">Découvrir →</a>
+              <a href="#contact" class="btn btn-primary">Commander →</a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -441,7 +486,7 @@
       <div class="container">
         <h2>Bienvenue dans CIEL'.</h2>
         <p>Apprendre. Créer. Innover.</p>
-        <a href="mailto:contact@ciel-expert.com" class="btn">Nous contacter</a>
+        <a href="mailto:secretariatlexpert@gmail.com" class="btn">Nous contacter</a>
       </div>
     </section>
 
@@ -452,6 +497,7 @@
       <div>
         <div class="footer-title">CIEL'</div>
         <p>Centre d’Innovation d’Excellence L’Expert</p>
+        <p>secretariatlexpert@gmail.com — +242 05 302 48 79 / 06 925 00 84</p>
       </div>
       <div>
         <p>© 2026 CIEL' — Tous droits réservés.</p>
