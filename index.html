@@ -86,10 +86,12 @@
     .universe {
       background: #f7fbff; padding: 28px; border-radius: 14px;
       border: 1px solid #dbe8f6; transition: 0.2s;
+      display: block; cursor: pointer;
     }
     .universe:hover { transform: translateY(-5px); border-color: #d9a441; }
+    .universe:hover h3 { color: #d9a441; }
     .universe-icon { font-size: 34px; margin-bottom: 18px; }
-    .universe h3 { font-size: 18px; margin-bottom: 7px; color: #12213b; }
+    .universe h3 { font-size: 18px; margin-bottom: 7px; color: #12213b; transition: 0.2s; }
     .universe p { font-size: 14px; color: #5c6b82; }
 
     /* JEUX */
@@ -134,7 +136,7 @@
     .history-box p { color: #5c6b82; }
 
     /* BOUTIQUE */
-    .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .shop-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .shop-card {
       background: white; border: 1px solid #dbe8f6; border-radius: 16px;
       padding: 0; overflow: hidden;
@@ -159,7 +161,6 @@
       padding: 6px 10px; border-radius: 20px; font-size: 11px; font-weight: bold;
     }
     .badge-dispo { background: #e6f6ec; color: #16805b; }
-    .badge-promo { background: #fdeceb; color: #b3261e; }
 
     /* VIDEO */
     .video-section { background: white; }
@@ -185,7 +186,7 @@
       .universe-grid { grid-template-columns: repeat(2, 1fr); }
       .formation-grid { grid-template-columns: 1fr; }
       .history-box { grid-template-columns: 1fr; }
-      .game-grid, .shop-grid { grid-template-columns: 1fr; }
+      .game-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 650px) {
       .nav { padding: 12px 18px; }
@@ -261,14 +262,14 @@
           <p>Un écosystème conçu pour apprendre, expérimenter, créer et partager.</p>
         </div>
         <div class="universe-grid">
-          <div class="universe"><div class="universe-icon">🎮</div><h3>Jeux numériques</h3><p>Des expériences interactives et éducatives.</p></div>
-          <div class="universe"><div class="universe-icon">🧩</div><h3>Jeux & cahiers</h3><p>Mots mêlés, mots fléchés, Sudoku et jeux instructifs.</p></div>
-          <div class="universe"><div class="universe-icon">🤖</div><h3>Technologie & Robotique</h3><p>Apprendre à construire, programmer et innover.</p></div>
-          <div class="universe"><div class="universe-icon">💻</div><h3>Informatique & Infographie</h3><p>Des compétences numériques pour créer et progresser.</p></div>
-          <div class="universe"><div class="universe-icon">📖</div><h3>Guides numériques</h3><p>Des ressources conçues pour accompagner les jeunes.</p></div>
-          <div class="universe"><div class="universe-icon">👕</div><h3>Boutique</h3><p>Collections vestimentaires et produits CIEL'.</p></div>
-          <div class="universe"><div class="universe-icon">🎨</div><h3>Créations artistiques</h3><p>Tableaux, œuvres et collections à découvrir.</p></div>
-          <div class="universe"><div class="universe-icon">🔬</div><h3>Sci-Mag</h3><p>Le mag scientifique préféré des enfants révolutionnaires.</p></div>
+          <a href="#jeux" class="universe"><div class="universe-icon">🎮</div><h3>Jeux numériques</h3><p>Des expériences interactives et éducatives.</p></a>
+          <a href="#boutique" class="universe"><div class="universe-icon">🧩</div><h3>Jeux & cahiers</h3><p>Mots mêlés, mots fléchés, Sudoku et jeux instructifs.</p></a>
+          <a href="#formations" class="universe"><div class="universe-icon">🤖</div><h3>Technologie & Robotique</h3><p>Apprendre à construire, programmer et innover.</p></a>
+          <a href="#formations" class="universe"><div class="universe-icon">💻</div><h3>Informatique & Infographie</h3><p>Des compétences numériques pour créer et progresser.</p></a>
+          <a href="#guides" class="universe"><div class="universe-icon">📖</div><h3>Guides numériques</h3><p>Des ressources conçues pour accompagner les jeunes.</p></a>
+          <a href="#boutique" class="universe"><div class="universe-icon">👕</div><h3>Boutique</h3><p>Collections vestimentaires et produits CIEL'.</p></a>
+          <a href="creations/y-yesu/" class="universe"><div class="universe-icon">🎨</div><h3>Créations artistiques</h3><p>Tableaux, œuvres et collections à découvrir.</p></a>
+          <a href="#scimag" class="universe"><div class="universe-icon">🔬</div><h3>Sci-Mag</h3><p>Le mag scientifique préféré des enfants révolutionnaires.</p></a>
         </div>
       </div>
     </section>
@@ -378,7 +379,7 @@
         <div class="shop-grid">
 
           <div class="shop-card">
-            <img src="assets/boutique/TEESH_NMY.jpg" alt="T-shirt Nani Mokonzi Yesu" class="shop-card-img">
+            <img src="assets/boutique/TEESH_NMY.jpeg" alt="T-shirt Nani Mokonzi Yesu" class="shop-card-img">
             <div class="shop-card-body">
               <span class="coming-badge badge-dispo">DISPONIBLE</span>
               <h3>T-shirt « Nani Mokonzi Yesu »</h3>
@@ -389,7 +390,7 @@
           </div>
 
           <div class="shop-card">
-            <img src="assets/boutique/PUB_30HDELABIBLE_MOTMELES.jpg" alt="Cahiers de jeux 30 Héros de la Bible" class="shop-card-img">
+            <img src="assets/boutique/PUB_30HDELABIBLE_MOTMELES.png" alt="Cahiers de jeux 30 Héros de la Bible" class="shop-card-img">
             <div class="shop-card-body">
               <span class="coming-badge badge-dispo">DISPONIBLE</span>
               <h3>Cahiers de jeux — Histoire + Mots Mêlés 30 Héros de la Bible</h3>
@@ -400,7 +401,7 @@
           </div>
 
           <div class="shop-card">
-            <img src="assets/boutique/pub-jeux-techno.jpg" alt="Cahier Jeux Technologie et Robotique" class="shop-card-img">
+            <img src="assets/boutique/pub_jeuxetchno.jpeg" alt="Cahier Jeux Technologie et Robotique" class="shop-card-img">
             <div class="shop-card-body">
               <span class="coming-badge badge-dispo">DISPONIBLE</span>
               <h3>Cahier de Jeux — Technologie & Robotique</h3>
@@ -412,7 +413,7 @@
           </div>
 
           <div class="shop-card">
-            <img src="assets/boutique/pub-tableau-y.jpg" alt="Tableau Y — YESU" class="shop-card-img">
+            <img src="assets/boutique/pub-tableau-y.jpeg" alt="Tableau Y — YESU" class="shop-card-img">
             <div class="shop-card-body">
               <span class="coming-badge badge-dispo">DISPONIBLE</span>
               <h3>Tableau « Y — YESU »</h3>
@@ -427,7 +428,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="guides">
       <div class="container">
         <div class="section-title">
           <small>Ressources</small>
@@ -448,7 +449,7 @@
       </div>
     </section>
 
-    <section class="history">
+    <section class="history" id="scimag">
       <div class="container">
         <div class="two-columns">
           <div class="info-card">
